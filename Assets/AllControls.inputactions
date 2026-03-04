@@ -1,5 +1,5 @@
 {
-    "name": "InputSystem_Actions",
+    "name": "AllControls",
     "maps": [
         {
             "name": "Player",
@@ -988,6 +988,76 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "camera",
+            "id": "45dfd3e7-e201-47bb-9f5b-a21de51e1e2d",
+            "actions": [
+                {
+                    "name": "mouseZoom",
+                    "type": "Value",
+                    "id": "18487e8c-5023-49e0-9850-41b21c181f88",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "gamepadZoom",
+                    "type": "Value",
+                    "id": "34ddfa86-4c39-40c8-950f-63ec0817c573",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ccba0ec0-ff6d-4a55-b682-c8754b5b0913",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "mouseZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "0233ca0d-0d02-419f-bcc7-ae13229c96d9",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "gamepadZoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "ce1fd0ab-b711-417f-8c45-15ba255d6c47",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "gamepadZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "4a764de7-eeeb-4095-83dd-ef952b59f6ee",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "gamepadZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

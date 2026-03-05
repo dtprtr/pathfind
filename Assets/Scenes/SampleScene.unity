@@ -206,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212342, y: 0.00000006107601, z: -0.000000009400499, w: 0.98836154}
-  m_LocalPosition: {x: 0.926075, y: 12.033529, z: -8.338585}
+  m_LocalRotation: {x: 0.1521234, y: -0.000000100402595, z: 0.000000015453441, w: 0.98836154}
+  m_LocalPosition: {x: 2.026075, y: 12.720205, z: -8.122076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 807131404}
   - component: {fileID: 807131403}
   - component: {fileID: 807131402}
+  - component: {fileID: 807131407}
   - component: {fileID: 807131406}
   - component: {fileID: 807131401}
   m_Layer: 0
@@ -623,7 +624,7 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
-    Enabled: 0
+    Enabled: 1
     Time: 0
     Smoothing: 0
     IgnoreY: 0
@@ -741,7 +742,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807131400}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212342, y: 0.00000006252926, z: -0.000000018842407, w: 0.98836154}
+  m_LocalRotation: {x: 0.1521234, y: -0.000000100196175, z: 0.0000000141123255, w: 0.98836154}
   m_LocalPosition: {x: 0.926075, y: 12.033529, z: -8.338585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -764,6 +765,21 @@ MonoBehaviour:
   zoomMax: 20
   zoomSpeed: 3
   zoomLerpSpeed: 10
+--- !u!114 &807131407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807131400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: {x: 1.1, y: 0.72, z: 0}
+  ApplyAfter: 1
+  PreserveComposition: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,8 +822,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832575517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,9 +1091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 807131405}
-  jumpHeight: 2
+  jumpHeight: 4
   speed: 5
-  gravity: -4
   gravityMultiplier: 3
   shouldFaceMove: 1
   groundLayer:
@@ -1117,7 +1132,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845187343}
         m_TargetAssemblyTypeName: character_movement, Assembly-CSharp
-        m_MethodName: Move
+        m_MethodName: ApplyMovement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

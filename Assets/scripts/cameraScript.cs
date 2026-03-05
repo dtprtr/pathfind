@@ -54,7 +54,7 @@ public class cameraScript : MonoBehaviour
         float stickDelta = controls.camera.gamepadZoom.ReadValue<float>();
         if (stickDelta != 0)
         {
-            targetZoom = Mathf.Clamp(orbital.Radius - stickDelta * zoomSpeed * 8 * Time.deltaTime, zoomMin, zoomMax);
+            targetZoom = Mathf.Clamp(orbital.Radius - stickDelta * zoomSpeed * 16 * Time.deltaTime, zoomMin, zoomMax);
         }
 
 

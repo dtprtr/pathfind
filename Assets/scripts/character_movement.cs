@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -13,7 +14,6 @@ public class character_movement : MonoBehaviour
     private float gravity = -9.81f;
     [SerializeField] private float gravityMultiplier = 3f;
     [HideInInspector] public float velocityY;
-    private float velocity;
     [SerializeField] private bool shouldFaceMove = false;
 
     public LayerMask groundLayer;
@@ -78,17 +78,18 @@ public class character_movement : MonoBehaviour
     {
         if (controller.isGrounded && velocityY < 0.0f)
         {
-            velocity = -1.0f;
+            velocityY = -1.0f;
 
         }
         else 
         {
-            velocity+=gravity * gravityMultiplier * Time.deltaTime;
-            _direction.y = velocity;
+            velocityY+=gravity * gravityMultiplier * Time.deltaTime;
+            _direction.y = velocityY;
         }
     }
     public void ApplyMovement(InputAction.CallbackContext context)
     {
+        
         moveInput = context.ReadValue<Vector2>();
         _direction = new Vector3(moveInput.x, 0, moveInput.y);
 
@@ -97,11 +98,14 @@ public class character_movement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-       if (context.started && controller.isGrounded)
-       {
+       
+        if (context.started && controller.isGrounded)
+        {
             velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity * gravityMultiplier);
-       }
-
+        }
+        
+        
+        
 
     }
     public void TakeDamage(float damage)
@@ -141,7 +145,7 @@ public class character_movement : MonoBehaviour
         Debug.Log("Player has died.");
     }
 
-    private bool isGrounded() => controller.isGrounded;
+    
     
 
 

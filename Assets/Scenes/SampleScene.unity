@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 807131407}
   - component: {fileID: 807131406}
   - component: {fileID: 807131401}
+  - component: {fileID: 807131408}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -674,7 +675,7 @@ MonoBehaviour:
   VerticalAxis:
     Value: 17.5
     Center: 17.5
-    Range: {x: 0, y: 60}
+    Range: {x: -10, y: 60}
     Wrap: 0
     Recentering:
       Enabled: 0
@@ -780,6 +781,36 @@ MonoBehaviour:
   Offset: {x: 1.1, y: 0.72, z: 0}
   ApplyAfter: 1
   PreserveComposition: 0
+--- !u!114 &807131408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807131400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7de3aefa901374ba29464584a3109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraRadius: 0.4
+  Decollision:
+    Enabled: 0
+    ObstacleLayers:
+      serializedVersion: 2
+      m_Bits: 1
+    UseFollowTarget:
+      Enabled: 0
+      YOffset: 0
+    Damping: 0.5
+    SmoothingTime: 0
+  TerrainResolution:
+    Enabled: 1
+    TerrainLayers:
+      serializedVersion: 2
+      m_Bits: 1
+    MaximumRaycast: 10
+    Damping: 0.5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,8 +1126,8 @@ MonoBehaviour:
   cameraTransform: {fileID: 807131405}
   controller: {fileID: 0}
   jumpHeight: 4
-  speed: 5
-  gravityMultiplier: 3
+  speed: 8
+  gravityMultiplier: 1
   velocityY: 0
   shouldFaceMove: 1
   groundLayer:
@@ -1279,8 +1310,9 @@ MonoBehaviour:
   abilityIcon: {fileID: 0}
   cooldownTime: 1.45
   canUse: 1
-  dashPower: 4
-  dashingtime: 0.2
+  isDashing: 0
+  dashPower: 6
+  dashingtime: 0.1
   character: {fileID: 1845187342}
   tr: {fileID: 1845187346}
   playerMovement: {fileID: 1845187343}
@@ -1308,7 +1340,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8f770aa6876eaeb48b9e40d2ceea604c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1389,13 +1421,13 @@ TrailRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 14
-    numCapVertices: 19
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0
   m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 0
@@ -1502,7 +1534,7 @@ Transform:
   m_GameObject: {fileID: 2143046941}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.46, z: 0}
+  m_LocalPosition: {x: 0, y: 1.46, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []

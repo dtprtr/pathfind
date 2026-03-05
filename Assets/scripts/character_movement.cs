@@ -5,14 +5,14 @@ using UnityEngine.InputSystem;
 public class character_movement : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
-  
 
-    private CharacterController controller;
+
+    [HideInInspector] public CharacterController controller;
     public float jumpHeight = 2f;
     public float speed = 5f;
     private float gravity = -9.81f;
     [SerializeField] private float gravityMultiplier = 3f;
-    private float velocityY;
+    [HideInInspector] public float velocityY;
     private float velocity;
     [SerializeField] private bool shouldFaceMove = false;
 
@@ -27,8 +27,8 @@ public class character_movement : MonoBehaviour
     private float invinciblity;
     public float invincibiltyTime;
 
-    private Vector2 moveInput;
-    private Vector3 _direction;
+    [HideInInspector] public Vector2 moveInput;
+    [HideInInspector] public Vector3 _direction;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();

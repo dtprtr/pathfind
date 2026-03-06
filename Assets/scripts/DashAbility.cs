@@ -12,12 +12,14 @@ public class DashAbility : AbilityBase
     public TrailRenderer tr;
     public character_movement playerMovement;
     public AnimationCurve dashCurve;
+    public SphereCollider wallCheckCollider;
 
     public void Awake()
     {
         character = GetComponent<CharacterController>();
         tr = GetComponent<TrailRenderer>();
         playerMovement = GetComponent<character_movement>();
+        wallCheckCollider = GetComponent<SphereCollider>();
     }
 
     protected override void Ability()
@@ -30,7 +32,7 @@ public class DashAbility : AbilityBase
         isDashing = true;
         playerMovement.enabled = false;
         tr.emitting = true;
-
+        
         Vector3 oldPos = character.transform.position;
         Vector3 newPos = oldPos + transform.forward * dashPower;
         

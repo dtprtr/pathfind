@@ -7,11 +7,12 @@ public class DashAbility : AbilityBase
 {
     [HideInInspector] public bool isDashing;  
     public float dashPower;//how much force the dash will apply to the player
-    public float dashingtime;
+    public float dashingDuration;
     public CharacterController character;
     public TrailRenderer tr;
     public character_movement playerMovement;
-    
+    public AnimationCurve dashCurve;
+
     public void Awake()
     {
         character = GetComponent<CharacterController>();
@@ -28,12 +29,21 @@ public class DashAbility : AbilityBase
     {
         isDashing = true;
         playerMovement.enabled = false;
-        character.Move(transform.forward * dashPower);
         tr.emitting = true;
-        yield return new WaitForSeconds(dashingtime);
-        playerMovement.enabled = true;
+
+        Vector3 oldPos = character.transform.position;
+        Vector3 newPos = oldPos + transform.forward * dashPower;
+        
+        for (float T = 0; T< dashingDuration; T += Time.deltaTime)
+        {
+            character.transform.position = Vector3.Lerp(oldPos, newPos,dashCurve.Evaluate( T / dashingDuration));
+            yield return new WaitForEndOfFrame();
+        }
+        
         tr.emitting = false;
-        playerMovement.velocityY = 0;
+        playerMovement.enabled = true;
         isDashing = false;
+        
+        playerMovement.velocityY = 0;
     }
 }

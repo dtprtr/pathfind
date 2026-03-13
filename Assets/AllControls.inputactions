@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "AllControls",
     "maps": [
         {
@@ -1043,6 +1044,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "mousePan",
+                    "type": "Value",
+                    "id": "c84d0b00-47df-4828-93ed-7f723e9a6c9d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1089,6 +1099,17 @@
                     "action": "gamepadZoom",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "abd81cbe-a8ec-488c-b601-8ce5b5117926",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "mousePan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

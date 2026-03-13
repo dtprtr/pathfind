@@ -14,7 +14,8 @@ public class character_movement : MonoBehaviour
     private float gravity = -9.81f;
     [SerializeField] private float gravityMultiplier = 3f;
     [HideInInspector] public float velocityY;
-    [SerializeField] private bool shouldFaceMove = false;
+    //[SerializeField] private bool shouldFaceMove = false;
+    [SerializeField] private bool shouldFaceCam = false;
 
     public LayerMask groundLayer;
     public Vector3 boxSize;
@@ -55,13 +56,10 @@ public class character_movement : MonoBehaviour
         right.Normalize();
 
         Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
-        controller.Move(moveDirection * speed * Time.deltaTime);
+        //Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
+        controller.Move( moveDirection * speed * Time.deltaTime);
 
-        if (shouldFaceMove && moveDirection.sqrMagnitude > 0.001f)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 10f);
-        }
+        
 
         velocityY += gravity * gravityMultiplier * Time.deltaTime;
         controller.Move(new Vector3(0, velocityY, 0) * Time.deltaTime);
